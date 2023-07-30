@@ -77,21 +77,31 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be less than 10000000")
       end
+      
       it "priceが全角数字では出品できない" do
         @item.price = "６００"
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
+      
       it "priceが半角英数字では出品できない" do
         @item.price = "123abc"
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
+      
       it "priceが半角英語では出品できない" do
         @item.price = "abcdef"
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
+
+      it "userが紐づいていないと登録できない" do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User must exist")
+      end
+
     end
   end
 end
