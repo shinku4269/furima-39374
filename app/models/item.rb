@@ -16,6 +16,6 @@ class Item < ApplicationRecord
   validates :category_id,         presence: true, numericality: { other_than: 1, message: "Category can't be blank" }
   validates :status_id,           presence: true, numericality: { other_than: 1, message: "Status can't be blank" }
   validates :shipping_area_id,    presence: true, numericality: { other_than: 1, message: "Shipping_area can't be blank" }
-  validates :shipping_charges_id, presence: true, numericality: { other_than: 1, message: "Shipping_chages can't be blank" }
+  validates :shipping_charges_id, presence: true, numericality: { other_than: 1, message: "Shipping_charges can't be blank" }
   validates :shipping_day_id,     presence: true, numericality: { other_than: 1, message: "Shipping_day can't be blank" }
 end
