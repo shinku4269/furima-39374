@@ -1,10 +1,12 @@
 class PurchasesController < ApplicationController
 
   def index
+    @item = Item.find(params[:item_id])
     @purchase_destination = PurchaseDestination.new
   end
 
   def create
+    @item = Item.find(params[:item_id])
     @purchase_destination = PurchaseDestination.new(purchase_params)
     if @purchase_destination.valid?
       @purchase_destination.save
