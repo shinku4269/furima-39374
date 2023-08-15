@@ -40,55 +40,55 @@ RSpec.describe PurchaseDestination do
         expect(@purchase_destination.errors.full_messages).to include("Shipping area must be other than 1")
       end
 
-      it 'cityが空では保存できないこと' do
+      it 'cityが空では購入できない' do
         @purchase_destination.city = nil
         @purchase_destination.valid?
         expect(@purchase_destination.errors.full_messages).to include("City can't be blank")
       end
 
-      it 'addressが空では保存できないこと' do
+      it 'addressが空では購入できない' do
         @purchase_destination.address = nil
         @purchase_destination.valid?
         expect(@purchase_destination.errors.full_messages).to include("Address can't be blank")
       end
 
-      it 'phone_numberが空では保存できないこと' do
+      it 'phone_numberが空では購入できない' do
         @purchase_destination.phone_number = nil
         @purchase_destination.valid?
         expect(@purchase_destination.errors.full_messages).to include("Phone number can't be blank")
       end
       
-      it 'phone_numberが9桁以下の場合は保存できないこと' do
+      it 'phone_numberが9桁以下の場合は購入できない' do
         @purchase_destination.phone_number = '123456789'
         @purchase_destination.valid?
         expect(@purchase_destination.errors.full_messages).to include("Phone number is too short (minimum is 10 characters)")
       end
 
-      it 'phone_numberが12桁以上の場合は保存できないこと' do
+      it 'phone_numberが12桁以上の場合は購入できない' do
         @purchase_destination.phone_number = '123456789012'
         @purchase_destination.valid?
         expect(@purchase_destination.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
       end
 
-      it 'phone_numberが半角数字でない場合は保存できないこと' do
+      it 'phone_numberが半角数字のみでない場合は購入できない' do
         @purchase_destination.phone_number = '123-456-789'
         @purchase_destination.valid?
         expect(@purchase_destination.errors.full_messages).to include("Phone number is invalid")
       end
 
-      it 'item_idが空では保存できないこと' do
+      it 'item_idが空では購入できない' do
         @purchase_destination.item_id = nil
         @purchase_destination.valid?
         expect(@purchase_destination.errors.full_messages).to include("Item can't be blank")
       end
 
-      it 'user_idが空では保存できないこと' do
+      it 'user_idが空では購入できない' do
         @purchase_destination.user_id = nil
         @purchase_destination.valid?
         expect(@purchase_destination.errors.full_messages).to include("User can't be blank")
       end
 
-      it 'tokenが空では保存できないこと' do
+      it 'tokenが空では購入できない' do
         @purchase_destination.token = nil
         @purchase_destination.valid?
         expect(@purchase_destination.errors.full_messages).to include("Token can't be blank")
