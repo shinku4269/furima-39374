@@ -4,7 +4,7 @@ class PurchasesController < ApplicationController
   before_action :set_item, only: [:index, :create]
 
   def index
-    if @item.purchases.present?
+    if (@item.user_id == current_user.id) || @item.purchase.present?
       redirect_to root_path
     end  
     @purchase_destination = PurchaseDestination.new
@@ -24,7 +24,7 @@ class PurchasesController < ApplicationController
   private
 
   def purchase_params
-    params.require(:purchase_destination).permit(:post_code, :shipping_area_id, :city, :address, :building_name, :phone_number, :user_id, :item_id, :purchase_id).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+    params.require(:purchase_destination).permit(:post_code, :shipping_area_id, :city, :address, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 
   def pay_item
