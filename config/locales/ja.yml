@@ -29,3 +29,5 @@ ja:
         address: 番地
         phone_number: 電話番号
         shipping_area_id: 都道府県
+        user_id: ユーザー
+        item_id: 商品

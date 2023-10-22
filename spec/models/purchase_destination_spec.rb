@@ -40,7 +40,7 @@ RSpec.describe PurchaseDestination do
       it "shipping_area_idの値が空（id = 1）では購入できない" do
         @purchase_destination.shipping_area_id = 1
         @purchase_destination.valid?
-        expect(@purchase_destination.errors.full_messages).to include("都道府県は1以外の値にしてください")
+        expect(@purchase_destination.errors.full_messages).to include("都道府県を入力してください")
       end
 
       it 'cityが空では購入できない' do
@@ -82,13 +82,13 @@ RSpec.describe PurchaseDestination do
       it 'item_idが空では購入できない' do
         @purchase_destination.item_id = nil
         @purchase_destination.valid?
-        expect(@purchase_destination.errors.full_messages).to include("Itemを入力してください")
+        expect(@purchase_destination.errors.full_messages).to include("商品を入力してください")
       end
 
       it 'user_idが空では購入できない' do
         @purchase_destination.user_id = nil
         @purchase_destination.valid?
-        expect(@purchase_destination.errors.full_messages).to include("Userを入力してください")
+        expect(@purchase_destination.errors.full_messages).to include("ユーザーを入力してください")
       end
 
       it 'tokenが空では購入できない' do

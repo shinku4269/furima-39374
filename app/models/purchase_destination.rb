@@ -4,7 +4,7 @@ class PurchaseDestination
 
   with_options presence: true do
     validates :post_code,        format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
-    validates :shipping_area_id, numericality: { other_than: 1 }
+    validates :shipping_area_id, numericality: { other_than: 1, message: "を入力してください" }
     validates :city
     validates :address
     validates :phone_number,     format: {with: /\A[0-9]+\z/}, length: { minimum: 10, maximum: 11 }
