@@ -1,0 +1,31 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        birth_day: 誕生日
+        first_name: 名前
+        family_name: 苗字
+        first_name_furigana: 名前カナ
+        family_name_furigana: 苗字カナ
+      item:
+        name: 商品名
+        description: 商品の説明
+        images: 商品画像
+        price: 販売価格
+        category_id: カテゴリー
+        shipping_charges_id: 配送料の負担
+        status_id: 商品の状態
+        shipping_day_id: 発送までの日数
+        shipping_area_id: 発送元の地域
+        user: ユーザー
+
+  activemodel:
+    attributes:
+      purchase_destination:
+        post_code: 郵便番号
+        city: 市区町村
+        token: クレジットカード情報
+        address: 番地
+        phone_number: 電話番号
+        shipping_area_id: 都道府県
