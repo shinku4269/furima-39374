@@ -14,11 +14,11 @@ class Item < ApplicationRecord
   validates :description,         presence: true
   validates :price,               presence: true, format: { with: /\A[0-9]+\z/ },
                                   numericality: { only_integer: true, greater_than: 299, less_than: 10000000 }
-  validates :category_id,         presence: true, numericality: { other_than: 1, message: "can't be blank" }
-  validates :status_id,           presence: true, numericality: { other_than: 1, message: "can't be blank" }
-  validates :shipping_area_id,    presence: true, numericality: { other_than: 1, message: "can't be blank" }
-  validates :shipping_charges_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
-  validates :shipping_day_id,     presence: true, numericality: { other_than: 1, message: "can't be blank" }
+  validates :category_id,         presence: true, numericality: { other_than: 1, message: "を入力してください" }
+  validates :status_id,           presence: true, numericality: { other_than: 1, message: "を入力してください" }
+  validates :shipping_area_id,    presence: true, numericality: { other_than: 1, message: "を入力してください" }
+  validates :shipping_charges_id, presence: true, numericality: { other_than: 1, message: "を入力してください" }
+  validates :shipping_day_id,     presence: true, numericality: { other_than: 1, message: "を入力してください" }
   validates :images,              attached: true
   validates :images, length: { minimum: 1, maximum: 5, message: "は1枚以上5枚以下にしてください" }
 end
